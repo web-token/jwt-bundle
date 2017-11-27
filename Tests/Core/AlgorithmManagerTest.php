@@ -11,7 +11,7 @@ declare(strict_types=1);
  * of the MIT license.  See the LICENSE file for details.
  */
 
-namespace Jose\Bundle\JoseFramework\Tests;
+namespace Jose\Bundle\JoseFramework\Tests\Core;
 
 use Jose\Component\Core\AlgorithmManager;
 use Jose\Component\Core\AlgorithmManagerFactory;
