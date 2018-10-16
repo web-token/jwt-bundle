@@ -13,22 +13,22 @@ declare(strict_types=1);
 
 namespace Jose\Bundle\JoseFramework\DependencyInjection\Compiler;
 
-use Jose\Component\KeyManagement\Analyzer\KeyAnalyzerManager;
+use Jose\Component\KeyManagement\Analyzer\KeysetAnalyzerManager;
 use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Reference;
 
-class KeyAnalyzerCompilerPass implements CompilerPassInterface
+class KeysetAnalyzerCompilerPass implements CompilerPassInterface
 {
     public function process(ContainerBuilder $container)
     {
-        if (!$container->hasDefinition(KeyAnalyzerManager::class)) {
+        if (!$container->hasDefinition(KeysetAnalyzerManager::class)) {
             return;
         }
 
-        $definition = $container->getDefinition(KeyAnalyzerManager::class);
+        $definition = $container->getDefinition(KeysetAnalyzerManager::class);
 
-        $taggedServices = $container->findTaggedServiceIds('jose.key_analyzer');
+        $taggedServices = $container->findTaggedServiceIds('jose.keyset_analyzer');
         foreach ($taggedServices as $id => $tags) {
             $definition->addMethodCall('add', [new Reference($id)]);
         }
