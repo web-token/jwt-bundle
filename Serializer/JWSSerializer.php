@@ -20,7 +20,7 @@ use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
 
 final class JWSSerializer implements DenormalizerInterface, EncoderInterface, DecoderInterface, NormalizationAwareInterface
 {
-    private JWSSerializerManager $serializerManager;
+    private readonly JWSSerializerManager $serializerManager;
 
     public function __construct(
         JWSSerializerManagerFactory $serializerManagerFactory,
@@ -66,7 +66,7 @@ final class JWSSerializer implements DenormalizerInterface, EncoderInterface, De
         }
     }
 
-    public function decode($data, $format, array $context = []): JWS
+    public function decode($data, $format, array $context = [])
     {
         try {
             return $this->serializerManager->unserialize($data);
@@ -75,7 +75,7 @@ final class JWSSerializer implements DenormalizerInterface, EncoderInterface, De
         }
     }
 
-    public function denormalize(mixed $data, string $type, string $format = null, array $context = []): JWS
+    public function denormalize(mixed $data, string $type, string $format = null, array $context = [])
     {
         if ($data instanceof JWS === false) {
             throw new LogicException('Expected data to be a JWS.');

@@ -18,7 +18,7 @@ use Symfony\Component\DependencyInjection\Loader\PhpFileLoader;
 class JWKSetSource implements Source
 {
     /**
-     * @var JWKSetSourceInterface[]
+     * @var JWKSetSourceInterface[]|null
      */
     private ?array $jwkset_sources = null;
 

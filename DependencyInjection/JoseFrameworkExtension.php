@@ -6,6 +6,7 @@ namespace Jose\Bundle\JoseFramework\DependencyInjection;
 
 use function count;
 use Jose\Bundle\JoseFramework\DependencyInjection\Source\Source;
+use Symfony\Component\Config\Definition\ConfigurationInterface;
 use Symfony\Component\Config\Definition\Processor;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Extension\PrependExtensionInterface;
@@ -17,8 +18,8 @@ final class JoseFrameworkExtension extends Extension implements PrependExtension
      * @param Source[] $sources
      */
     public function __construct(
-        private string $alias,
-        private array $sources
+        private readonly string $alias,
+        private readonly array $sources
     ) {
     }
 
@@ -43,7 +44,7 @@ final class JoseFrameworkExtension extends Extension implements PrependExtension
     /**
      * {@inheritdoc}
      */
-    public function getConfiguration(array $configs, ContainerBuilder $container): Configuration
+    public function getConfiguration(array $configs, ContainerBuilder $container): ?ConfigurationInterface
     {
         return new Configuration($this->getAlias(), $this->sources);
     }

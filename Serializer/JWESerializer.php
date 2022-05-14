@@ -21,7 +21,7 @@ use Throwable;
 
 final class JWESerializer implements DenormalizerInterface, EncoderInterface, DecoderInterface, NormalizationAwareInterface
 {
-    private JWESerializerManager $serializerManager;
+    private readonly JWESerializerManager $serializerManager;
 
     public function __construct(
         JWESerializerManagerFactory $serializerManagerFactory,
@@ -67,7 +67,7 @@ final class JWESerializer implements DenormalizerInterface, EncoderInterface, De
         }
     }
 
-    public function decode(string $data, string $format, array $context = []): JWE
+    public function decode(string $data, string $format, array $context = [])
     {
         try {
             return $this->serializerManager->unserialize($data);
@@ -76,7 +76,7 @@ final class JWESerializer implements DenormalizerInterface, EncoderInterface, De
         }
     }
 
-    public function denormalize(mixed $data, string $type, string $format = null, array $context = []): JWE
+    public function denormalize(mixed $data, string $type, string $format = null, array $context = [])
     {
         if ($data instanceof JWE === false) {
             throw new LogicException('Expected data to be a JWE.');
