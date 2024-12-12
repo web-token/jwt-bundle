@@ -17,6 +17,7 @@ use Symfony\Component\Serializer\Exception\NotEncodableValueException;
 use Throwable;
 use function in_array;
 use function is_int;
+use function sprintf;
 
 final readonly class JWEEncoder implements EncoderInterface, DecoderInterface, NormalizationAwareInterface
 {

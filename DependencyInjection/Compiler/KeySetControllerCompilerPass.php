@@ -9,6 +9,7 @@ use Jose\Bundle\JoseFramework\Routing\JWKSetLoader;
 use Override;
 use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
+use function sprintf;
 
 final readonly class KeySetControllerCompilerPass implements CompilerPassInterface
 {

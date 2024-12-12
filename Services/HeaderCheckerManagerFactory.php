@@ -8,6 +8,7 @@ use InvalidArgumentException;
 use Jose\Component\Checker\HeaderChecker;
 use Jose\Component\Checker\TokenTypeSupport;
 use Psr\EventDispatcher\EventDispatcherInterface;
+use function sprintf;
 
 final class HeaderCheckerManagerFactory
 {

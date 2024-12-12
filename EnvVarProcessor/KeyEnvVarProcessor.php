@@ -10,6 +10,7 @@ use Jose\Component\Core\JWKSet;
 use Override;
 use RuntimeException;
 use Symfony\Component\DependencyInjection\EnvVarProcessorInterface;
+use function sprintf;
 
 final readonly class KeyEnvVarProcessor implements EnvVarProcessorInterface
 {

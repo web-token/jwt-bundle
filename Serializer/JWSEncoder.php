@@ -16,6 +16,7 @@ use Symfony\Component\Serializer\Encoder\NormalizationAwareInterface;
 use Symfony\Component\Serializer\Exception\NotEncodableValueException;
 use function in_array;
 use function is_int;
+use function sprintf;
 
 final readonly class JWSEncoder implements EncoderInterface, DecoderInterface, NormalizationAwareInterface
 {

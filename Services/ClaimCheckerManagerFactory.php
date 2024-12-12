@@ -7,6 +7,7 @@ namespace Jose\Bundle\JoseFramework\Services;
 use InvalidArgumentException;
 use Jose\Component\Checker\ClaimChecker;
 use Psr\EventDispatcher\EventDispatcherInterface;
+use function sprintf;
 
 final class ClaimCheckerManagerFactory
 {

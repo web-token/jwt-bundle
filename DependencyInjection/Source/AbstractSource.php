@@ -7,6 +7,7 @@ namespace Jose\Bundle\JoseFramework\DependencyInjection\Source;
 use Symfony\Component\Config\Definition\Builder\NodeDefinition;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Definition;
+use function sprintf;
 
 abstract readonly class AbstractSource
 {
